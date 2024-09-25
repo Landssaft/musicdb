@@ -5,15 +5,22 @@ music=# CREATE TABLE genre (
 	the name of the genre VARCHAR(60) NOT NULL
 );
 
+CREATE TABLE genreperformer (
+	id genre SERIAL PRIMARY KEY, 
+	id genre SERIAL PRIMARY KEY, 
+
 CREATE TABLE performer (
 	id performer SERIAL PRIMARY KEY, 
 	the name of the performer VARCHAR(60) NOT NULL, 
-	id genre SERIAL PRIMARY KEY genre(id genre), 
+	id genre SERIAL PRIMARY KEY genre, 
 	id genre SERIAL PRIMARY KEY
 );
+CREATE TABLE performeralbum (
+	id performer SERIAL PRIMARY KEY, 
+	id performer SERIAL PRIMARY KEY, 
 
 CREATE TABLE album (
-	id performer SERIAL PRIMARY KEY performer(id performer), 
+	id performer SERIAL PRIMARY KEY performer, 
 	id performer SERIAL PRIMARY KEY, 
 	the name of the album VARCHAR(60) NOT NULL, 
 	id performer SERIAL PRIMARY KEY, 
@@ -25,14 +32,18 @@ CREATE TABLE track (
 	id performer SERIAL PRIMARY KEY, 
 	the name of the album VARCHAR(60) NOT NULL, 
 	year of release INTEGER, 
-	id album SERIAL PRIMARY KEY album(id album), 
+	id album SERIAL PRIMARY KEY album, 
 	duration INTEGER, 
 	id genre SERIAL PRIMARY KEY
 );
 
+CREATE TABLE trackcollection (
+	id performer SERIAL PRIMARY KEY, 
+	id performer SERIAL PRIMARY KEY, 
+
 CREATE TABLE collection (
 	the name of the collection VARCHAR(60) NOT NULL, 
-	id performer SERIAL PRIMARY KEY album(id performer), 
+	id performer SERIAL PRIMARY KEY album, 
 	id performer SERIAL PRIMARY KEY, 
 	year of release INTEGER
 );
