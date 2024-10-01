@@ -6,44 +6,34 @@ music=# CREATE TABLE genre (
 );
 
 CREATE TABLE genreperformer (
-	id genre SERIAL PRIMARY KEY, 
-	id genre SERIAL PRIMARY KEY, 
+	id genre references genre(id genre), 
 
 CREATE TABLE performer (
 	id performer SERIAL PRIMARY KEY, 
-	the name of the performer VARCHAR(60) NOT NULL, 
-	id genre SERIAL PRIMARY KEY genre, 
-	id genre SERIAL PRIMARY KEY
+	the name of the performer VARCHAR(60) NOT NULL,  
 );
 CREATE TABLE performeralbum (
-	id performer SERIAL PRIMARY KEY, 
-	id performer SERIAL PRIMARY KEY, 
+	id performer references album(id album),  
 
 CREATE TABLE album (
-	id performer SERIAL PRIMARY KEY performer, 
-	id performer SERIAL PRIMARY KEY, 
 	the name of the album VARCHAR(60) NOT NULL, 
-	id performer SERIAL PRIMARY KEY, 
-	year of release INTEGER, 
+	year of release INTEGER CHECK(year of release > 1980), 
 	id album SERIAL PRIMARY KEY
 );
 
 CREATE TABLE track (
-	id performer SERIAL PRIMARY KEY, 
 	the name of the album VARCHAR(60) NOT NULL, 
 	year of release INTEGER, 
 	id album SERIAL PRIMARY KEY album, 
-	duration INTEGER, 
-	id genre SERIAL PRIMARY KEY
+	duration INTEGER CHECK(duration > 60), 
+
 );
 
 CREATE TABLE trackcollection (
-	id performer SERIAL PRIMARY KEY, 
-	id performer SERIAL PRIMARY KEY, 
+	id album references collection(id collection) 
 
 CREATE TABLE collection (
+	id collection SERIAL PRIMARY KEY,
 	the name of the collection VARCHAR(60) NOT NULL, 
-	id performer SERIAL PRIMARY KEY album, 
-	id performer SERIAL PRIMARY KEY, 
-	year of release INTEGER
+	year of release INTEGER CHECK(year of release > 1980),
 );
